@@ -26,9 +26,15 @@ func parseTraining(data string) (int, string, time.Duration, error) {
 	if err != nil {
 		return 0, "", 0, fmt.Errorf("не удалось преобразовать: %v", err)
 	}
+	if steps <= 0 {
+		return 0, "", 0, fmt.Errorf("количество шагов должно быть больше 0")
+	}
 	duration, err := time.ParseDuration(parts[2])
 	if err != nil {
 		return 0, "", 0, fmt.Errorf("не удалось преобразовать время: %v", err)
+	}
+	if duration <= 0 {
+		return 0, "", 0, fmt.Errorf("продолжительность должна быть больше 0")
 	}
 	return steps, parts[1], duration, nil
 }
