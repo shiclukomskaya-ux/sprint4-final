@@ -29,7 +29,7 @@ func parsePackage(data string) (int, time.Duration, error) {
 		return 0, 0, fmt.Errorf("не удалось преобразовать: %v", err)
 	} // TODO: реализовать функцию
 	if steps <= 0 {
-		return 0, 0, fmt.Errorf("количество шакгов должно быть больше 0")
+		return 0, 0, fmt.Errorf("количество шагов должно быть больше 0")
 	}
 	duration, err := time.ParseDuration(parts[1])
 	if err != nil {
